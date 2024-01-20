@@ -25,4 +25,5 @@ sudo systemctl status mysql
 
 # jdk install
 sudo apt-get install -y openjdk-11-jdk
+
 java -version
