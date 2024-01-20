@@ -31,7 +31,7 @@ pipeline {
                 script {
                     // Run the Nginx setup script
                     //sh 'chmod +x setup.sh'
-                    sh 'setup.sh'
+                    sh 'testup.sh'
                 }
             }
         }
