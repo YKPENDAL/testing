@@ -20,3 +20,10 @@ sudo systemctl enable nginx
 
 # Display Nginx status
 sudo systemctl status nginx
+
+sudo apt-get install -y mysql-server
+            
+sudo systemctl start mysql
+            
+sudo systemctl enable mysql
+
