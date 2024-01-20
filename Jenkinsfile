@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    triggers {
+        // Trigger the pipeline on SCM changes (webhook or polling)
+        pollSCM('*/1 * * * *') // Poll every 5 minutes, adjust as needed
+    }
+
     stages {
         stage('Checkout') {
             steps {
