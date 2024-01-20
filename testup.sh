@@ -16,7 +16,7 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 
 # Allow Nginx through the firewall (if applicable)
-sudo ufw allow 'Nginx HTTP'
+#sudo ufw allow 'Nginx HTTP'
 
 # Display Nginx status
 sudo systemctl status nginx
