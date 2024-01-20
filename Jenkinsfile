@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git clone "https://github.com/YKPENDAL/testing.git "
+                // Checkout the repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/YKPENDAL/testing.git']]])
             }
         }
         stage('Build') {
