@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# check the ative directory
+pwd
+
 # Update the package list
 sudo apt update
 
