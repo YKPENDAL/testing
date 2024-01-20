@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git clone https://github.com/YKPENDAL/testing.git 
+                git clone "https://github.com/YKPENDAL/testing.git "
             }
         }
         stage('Build') {
