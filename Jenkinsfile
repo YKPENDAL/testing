@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // Run the Nginx setup script
-                    sh 'chmod +x testup.sh'
+                    //sh 'chmod +x testup.sh'
                     sh 'testup.sh'
                 }
             }
