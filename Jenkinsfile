@@ -14,8 +14,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Run the Nginx setup script
-                    sh 'testup.sh'
+                    sh 'sudo apt-get install -y openjdk-11-jdk'
+                    sh 'java -version'
                 }
             }
         }
