@@ -15,8 +15,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Run the Nginx setup script
-                sh 'chmod +x script.sh'
-                sh 'script.sh'
+                sh 'chmod +x /home/ubuntu/script.sh'
+                sh '/home/ubuntu/script.sh'
             }
         }
     }
