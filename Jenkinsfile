@@ -13,10 +13,11 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'sudo apt-get update && sudo apt-get install -y mysql-server'
-                sh 'sudo systemctl start mysql'
-                sh 'sudo systemctl enable mysql'
-                sh 'sudo systemctl status mysql'
+                script {
+                    // Run the Nginx setup script
+                    //sh 'chmod +x setup.sh'
+                    sh 'testup.sh'
+                }
             }
         }
     }
