@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'chmod +x bash.sh'
-                sh './bash.sh'
+                sh 'chmod +x script.sh'
+                sh './script.sh'
             }
         }
     }
