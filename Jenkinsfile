@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-        stage('Install dependencies') {
+        stage('Test') {
             steps {
                echo "Hello World"
             }
