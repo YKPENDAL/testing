@@ -3,7 +3,7 @@
 # Function to run commands with sudo and handle password input
 run_with_sudo() {
   if [ -z "$SUDO_PASSWORD" ] || [ -z "$JENKINS_USERNAME" ] || [ -z "$JENKINS_PASSWORD" ]; then
-    echo "Error: SUDO_PASSWORD, JENKINS_USERNAME, or JENKINS_PASSWORD variable is not set"
+    echo "Error: SUDO_PASSWORD"
     exit 1
   fi
 
