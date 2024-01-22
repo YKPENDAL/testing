@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Navigate to the desired directory
+cd /var/lib/jenkins/workspace/Jenkinsfilewithtest
+
+# Display the current working directory
+echo "Current directory: $(pwd)"
+
+
 # Function to run commands with sudo and handle password input
 run_with_sudo() {
   if [ -z "$SUDO_PASSWORD" ]; then
