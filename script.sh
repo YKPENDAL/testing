@@ -11,7 +11,7 @@ run_with_sudo() {
   fi
 
   # Set the sudo password
-  echo "$SUDO_PASSWORD" | sudo -S -u "$SUDO_USERNAME" "$@"
+  echo "$SUDO_PASSWORD" | sudo -S "$@"
   if [ $? -ne 0 ]; then
     echo "Error: Failed to execute command with sudo"
     exit 1

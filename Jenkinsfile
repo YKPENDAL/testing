@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        SUDO_USERNAME = 'Yash'
         SUDO_PASSWORD = 'yash@12345'
         WORKSPACE_DIR = '/var/lib/jenkins/workspace/Jenkinsfilewithtest'
     }
