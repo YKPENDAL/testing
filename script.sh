@@ -1,11 +1,7 @@
 #!/bin/bash
 
-# Navigate to the desired directory
-cd /var/lib/jenkins/workspace/Jenkinsfilewithtest
-
 # Display the current working directory
 echo "Current directory: $(pwd)"
-
 
 # Function to run commands with sudo and handle password input
 run_with_sudo() {
@@ -15,7 +11,7 @@ run_with_sudo() {
   fi
 
   # Set the sudo password
-  echo "$SUDO_PASSWORD" | sudo -S -i -u "$SUDO_USERNAME" "$@"
+  echo "$SUDO_PASSWORD" | sudo -S -u "$SUDO_USERNAME" "$@"
   if [ $? -ne 0 ]; then
     echo "Error: Failed to execute command with sudo"
     exit 1
