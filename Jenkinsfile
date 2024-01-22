@@ -13,6 +13,9 @@ pipeline {
         stage('Test') {
             steps {
                 script {
+                    echo "EC2_INSTANCE_IP: $EC2_INSTANCE_IP"
+                    echo "KEY_PATH: $KEY_PATH"
+                    echo "REMOTE_USER: $REMOTE_USER"
                     sh "chmod +x script.sh"
                     sh "./script.sh"
                 }
