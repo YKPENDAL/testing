@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout code') {
+            steps {
+                git 'https://github.com/YKPENDAL/testing.git'
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                sh 'sudo apt-get update && sudo apt-get install -y software-properties-common'
+            }
+        }
+
+        stage('Add MySQL repository') {
+            steps {
+                sh 'sudo apt-get -y add-apt-repository ppa:ondrej/mysql-8.0'
+                sh 'sudo apt-get update'
+            }
+        }
+
+        stage('Install MySQL server') {
+            steps {
+                sh 'sudo apt-get -y install mysql-server-8.0'
+            }
+        }
+
+        stage('Configure MySQL') {
+            steps {
+                sh 'sudo sed -i "s/datadir=\/var\/lib\/mysql/datadir=\/var\/lib\/mysql\/8.0/" /etc/mysql/mysql.conf.d/mysqld.cnf'
+                sh 'sudo systemctl restart mysqld'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'MySQL 8.0 successfully installed!'
+        }
+        failure {
+            echo 'Error installing MySQL 8.0!'
+        }
+    }
+}
