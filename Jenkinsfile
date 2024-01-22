@@ -1,17 +1,17 @@
 pipeline {
     agent any
 
-    environment {
+    //environment {
         //SUDO_PASSWORD = 'yash@12345'
-        WORKSPACE_DIR = '/var/lib/jenkins/workspace/Jenkinsfilewithtest'
-    }
+      //  WORKSPACE_DIR = '/var/lib/jenkins/workspace/Jenkinsfilewithtest'
+    //}
 
     stages {
-        stage('Install Dependencies') {
+        stage('Test') {
             steps {
                 script {
-                    sh "chmod +x ${WORKSPACE_DIR}/script.sh"
-                    sh "cd ${WORKSPACE_DIR} && ./script.sh"
+                    sh "chmod +x script.sh"
+                    sh "./script.sh"
                 }
             }
         }
