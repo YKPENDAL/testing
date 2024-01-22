@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#!/bin/bash
+
 
 # Your GitHub Secrets
 EC2_INSTANCE_IP=$HOST_DNS
