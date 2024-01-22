@@ -3,7 +3,7 @@
 # Function to run commands with sudo and handle password input
 run_with_sudo() {
   if [ -z "$SUDO_PASSWORD" ]; then
-    echo "Error: SUDO_PASSWORD"
+    echo "Error: SUDO_PASSWORD is not set"
     exit 1
   fi
 
@@ -14,12 +14,6 @@ run_with_sudo() {
     exit 1
   fi
 }
-
-# Set your sudo password, Jenkins username, and Jenkins password
-#SUDO_USERNAME='Yash'
-#SUDO_PASSWORD='yash@12345'
-#JENKINS_USERNAME='yashi2icore'
-#JENKINS_PASSWORD='yash@12345'
 
 # Update and upgrade
 run_with_sudo apt update
