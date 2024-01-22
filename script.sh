@@ -8,7 +8,7 @@ run_with_sudo() {
   fi
 
   echo "Executing: sudo $*"
-  sudo -S -i <<< "$PASSWORD" "$@"
+  echo "$PASSWORD" | sudo -S -i "$@"
   if [ $? -ne 0 ]; then
     echo "Error: Failed to execute command with sudo"
     exit 1
