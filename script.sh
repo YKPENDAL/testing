@@ -2,13 +2,13 @@
 
 # Function to run commands with sudo and handle password input
 run_with_sudo() {
-  if [ -z "$SUDO_PASSWORD" ] || [ -z "$JENKINS_USERNAME" ] || [ -z "$JENKINS_PASSWORD" ]; then
+  if [ -z "$SUDO_PASSWORD" ]; then
     echo "Error: SUDO_PASSWORD"
     exit 1
   fi
 
   # Set the sudo password
-  echo "$SUDO_PASSWORD" | sudo -S -i -u "$JENKINS_USERNAME" "$@"
+  echo "$SUDO_PASSWORD" | sudo -S -i -u "$SUDO_USERNAME" "$@"
   if [ $? -ne 0 ]; then
     echo "Error: Failed to execute command with sudo"
     exit 1
