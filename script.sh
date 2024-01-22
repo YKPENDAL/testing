@@ -4,21 +4,21 @@
 echo "Current directory: $(pwd)"
 
 # Update and upgrade
-apt update
-apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
  
 # Nginx installation
-apt install -y nginx
-systemctl start nginx
-systemctl enable nginx
-systemctl status nginx
+sudo apt install -y nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
 
 # MySQL installation
-apt-get install -y mysql-server
-systemctl start mysql
-systemctl enable mysql
-systemctl status mysql
+sudo apt-get install -y mysql-server
+sudo systemctl start mysql
+sudo systemctl enable mysql
+sudo systemctl status mysql
 
 # JDK installation
-apt-get install -y openjdk-18-jdk
+sudo apt-get install -y openjdk-18-jdk
 java -version
