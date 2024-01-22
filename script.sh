@@ -16,6 +16,7 @@ run_with_sudo() {
 }
 
 # Set your sudo password, Jenkins username, and Jenkins password
+SUDO_USERNAME='Yash'
 SUDO_PASSWORD='yash@12345'
 JENKINS_USERNAME='yashi2icore'
 JENKINS_PASSWORD='yash@12345'
