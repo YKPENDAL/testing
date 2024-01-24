@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    environment {
+        EC2_INSTANCE = 'your-ec2-instance-ip'  // Replace with your EC2 instance IP or DNS
+        EC2_CREDENTIALS = 'your-credentials-id' // Replace with your Jenkins credentials ID
+    }
+
+    stages {
+        stage('Connect to EC2') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'EC2_CREDENTIALS', variable: 'KEY')]) {
+                        sh """
+                            chmod 400 /tmp/key.pem
+                            ssh -o StrictHostKeyChecking=no -i /tmp/key.pem ec2-user@${EC2_INSTANCE} "echo Connected to EC2"
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('Install Nginx') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'EC2_CREDENTIALS', variable: 'KEY')]) {
+                        sh """
+                            scp -o StrictHostKeyChecking=no -i /tmp/key.pem your-nginx-config-file.conf ec2-user@${EC2_INSTANCE}:/tmp/nginx-config-file.conf
+                            ssh -o StrictHostKeyChecking=no -i /tmp/key.pem ec2-user@${EC2_INSTANCE} "sudo yum install -y nginx && sudo mv /tmp/nginx-config-file.conf /etc/nginx/conf.d/ && sudo systemctl start nginx && sudo systemctl enable nginx"
+                        """
+                    }
+                }
+            }
+        }
+    }
+}
